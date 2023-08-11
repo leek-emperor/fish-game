@@ -1,0 +1,8 @@
+/node_modules
+/public
+/src/assets
+/src/views
+/package-lock.json
+.DS_Store
+tsconfig.json
+vite.config.js

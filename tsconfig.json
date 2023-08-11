@@ -1,0 +1,45 @@
+{
+    "compilerOptions": {
+        "target": "es2015",
+        "lib": [
+            "dom",
+            "es5",
+            "es2015.promise",
+            "es2015",
+            "es2017"
+        ],
+        "baseUrl": ".",
+        "paths": {
+            "@/*": [
+                "src/*"
+            ],
+            "@components/*": [
+                "src/components/*"
+            ],
+            "@helpers/*": [
+                "src/helpers/*"
+            ],
+        },
+        "typeRoots": [
+            "../../node_modules/@types",
+            "./typings"
+        ],
+        "types": [
+            "vite-plugin-pwa"
+        ],
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "moduleResolution": "Node"
+    },
+    // 增加
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.d.ts",
+        "src/**/*.tsx",
+        "src/**/*.vue",
+    ],
+    "exclude": [
+        "/public",
+        "/node_modules"
+    ]
+}
