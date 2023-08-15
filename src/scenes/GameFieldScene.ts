@@ -337,6 +337,7 @@ export default class GameFieldScene extends Phaser.Scene {
         const countSpikes = SpikeGroup.getNeededSpikes(
             this.player.data.values.score
         )
+        console.log('countSpikes', countSpikes)
 
         const countRightSpikes =
             this.spikeGroupLeft.getCurrentCount > 0 ? countSpikes : 0
@@ -352,9 +353,10 @@ export default class GameFieldScene extends Phaser.Scene {
 
         this.changeColor({ background: 0xeb_eb_eb, spike: 0x80_80_80 })
 
+        console.log('第一个change', this.spikeGroupLeft.spikes[0].x)
         this.spikeGroupLeft.changeCount(0)
         this.spikeGroupRight.changeCount(0)
-
+        console.log('change End First', this.spikeGroupLeft.spikes[0].x, this.spikeGroupLeft.spikes)
         this.player.jump()
     }
 

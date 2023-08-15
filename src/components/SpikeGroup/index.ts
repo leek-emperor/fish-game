@@ -17,7 +17,7 @@ type SpikeGroupConfig = {
 
 export default class SpikeGroup {
     private scene: Phaser.Scene
-    private spikes: Spike[] = []
+    public spikes: Spike[] = []
     private currentSpikes = 0
     private maximumSpikes = 0
     private isAnimation: boolean
@@ -68,7 +68,9 @@ export default class SpikeGroup {
                 alpha,
             })
 
+
             spike.setAngle(angle)
+            console.log(spike.x, spike.y)
 
             this.spikes.push(spike)
         }
@@ -76,6 +78,11 @@ export default class SpikeGroup {
         this.hideSpikes()
 
         this.changeCount(count)
+
+        if (orientation === 'vertical') {
+
+            console.log('Spikes HHHHH', this.spikes[0].x, this.spikes)
+        }
     }
 
     public setFillStyle(color: number | undefined, alpha?: number | undefined) {
@@ -95,6 +102,7 @@ export default class SpikeGroup {
     }
 
     public changeCount(count: number) {
+        console.log('changeCount了啊', count)
         if (count > this.maximumSpikes) count = this.maximumSpikes
         this.currentSpikes = count
 
@@ -110,6 +118,7 @@ export default class SpikeGroup {
 
         while (excludedIndexes.length < count) {
             const index = this.randNumber(0, this.maximumSpikes - 1, excludedIndexes)
+            console.log('before show x', this.spikes[0].x)
 
             this.showSpike(index)
 
@@ -135,7 +144,11 @@ export default class SpikeGroup {
 
     private showSpike(index: number) {
         const spike = this.spikes[index]
-
+        console.log('spike Info -------------')
+        console.log('after show x', spike.x)
+        console.log(spike, this.spikes)
+        console.log('Animation', this.isAnimation, '  maxSpik', this.maximumSpikes)
+        console.log(index, spike.x, spike.y)
         if (this.isAnimation) {
             this.scene.tweens.add({
                 targets: spike,
@@ -146,10 +159,13 @@ export default class SpikeGroup {
 
         spike.setVisible(true)
         spike.setActive(true)
+        console.log(`我出来了 X to ${spike.x} Y to ${spike.y}`)
 
         // https://photonstorm.github.io/phaser3-docs/Phaser.Physics.Matter.Components.Collision.html
         // @ts-ignore
-        spike.setCollisionCategory(Number(true))
+        // spike.setCollisionCategory(Number(true))
+
+        console.log('-------------------')
 
         return this
     }
@@ -169,7 +185,8 @@ export default class SpikeGroup {
 
             // https://photonstorm.github.io/phaser3-docs/Phaser.Physics.Matter.Components.Collision.html
             // @ts-ignore
-            spike.setCollisionCategory(Number(false))
+            // spike.setCollisionCategory(Number(false))
+
         }
 
         return this

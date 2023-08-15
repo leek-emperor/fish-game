@@ -54,12 +54,10 @@ export default class LoadingScene extends Phaser.Scene {
     }
 
     private addLoaderEvents() {
-        // 加载过程事件
         this.load.on(Phaser.Loader.Events.PROGRESS, (value: number) => {
-            console.log(value)
             this.circularProgress.easeValueTo(value)
         })
-        // 完成事件
+
         this.load.on(Phaser.Loader.Events.COMPLETE, () => {
             this.circularProgress.destroy()
 

@@ -7,6 +7,8 @@ import GameOverScene from "@/scenes/GameOverScene"
 import GameInfoUiScene from "@/scenes/GameInfoUiScene"
 import ShopScene from "@/scenes/ShopScene"
 import PlayerSkinsScene from "@/scenes/PlayerSkinsScene"
+
+
 const DEBUG = false
 
 const SCALE = 1
@@ -19,21 +21,13 @@ const constants = {
     WIDTH: width * SCALE,
     HEIGHT: height * SCALE,
     DEBUG,
-    SPIKE: {
-        WIDTH: 145,
-        HEIGHT: 87,
+    FONT: {
+        FAMILY: '"Noto Sans", sans-serif',
+        COLOR: '#ffffff',
     },
-    WALL: {
-        HEIGHT: 150,
-    },
-    COLORS: {
-        DEFAULT: {
-            BACKGROUND: '#EBEBEB',
-            SPIKE: '#808080',
-            // SPIKE: '#000',
-        },
-        ACCENT: '#2BAFF6',
-        ACCENT_VARIANT: '#004F79',
+    CURSOR: {
+        DEFAULT: 'url(assets/cursors/default.cur), default',
+        POINTER: 'url(assets/cursors/pointer.cur), pointer',
     },
     SCENES: {
         LOADING: 'loading-scene',
@@ -46,13 +40,20 @@ const constants = {
         SHOP: 'shop-scene',
         SETTINGS: 'settings-scene',
     },
-    CURSOR: {
-        DEFAULT: 'url(assets/cursors/default.cur), default',
-        POINTER: 'url(assets/cursors/pointer.cur), pointer',
+    SPIKE: {
+        WIDTH: 145,
+        HEIGHT: 87,
     },
-    FONT: {
-        FAMILY: '"Noto Sans", sans-serif',
-        COLOR: '#ffffff',
+    WALL: {
+        HEIGHT: 150,
+    },
+    COLORS: {
+        ACCENT: '#2BAFF6',
+        ACCENT_VARIANT: '#004F79',
+        DEFAULT: {
+            BACKGROUND: '#EBEBEB',
+            SPIKE: '#808080',
+        },
     },
     FISH: {
         COUNT: 126,
@@ -60,6 +61,7 @@ const constants = {
         GIFT_COST: 500,
     },
 }
+
 export const SceneList = [LoadingScene, GameFieldScene, MainMenuScene, LocalStorageScene, GameInfoUiScene, GameOverScene, SettingsScene, PlayerSkinsScene, ShopScene]
 
 export default constants;

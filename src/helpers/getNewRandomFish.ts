@@ -1,5 +1,5 @@
 import Phaser from 'phaser'
-import constants from '../constants'
+import constants from '@/constants'
 
 export default function getNewRandomFish(playerFishes: string[]): string {
     const allFishes = getAllFishes()
